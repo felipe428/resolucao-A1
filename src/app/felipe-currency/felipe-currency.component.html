@@ -1,0 +1,22 @@
+<h1>Currency</h1>
+
+<table border="1">
+  <tr>
+    <th>Data/Hora</th>
+    <th>USD</th>
+    <th>EUR</th>
+    <th>BRL</th>
+  </tr>
+  <tr *ngFor="let rate of this.wallet.USDeEURlist; index as i">
+    <td>{{ rate.time.updated }}</td>
+    <td>
+      <span [innerHTML]="rate.bpi.USD.symbol"></span>
+      {{ rate.bpi.USD.rate_float }}
+    </td>
+    <td>
+      <span [innerHTML]="rate.bpi.EUR.symbol"></span>
+      {{ rate.bpi.EUR.rate_float }}
+    </td>
+    <td>R$ {{ wallet.BRLlist[i].bpi.BRL.rate_float }}</td>
+  </tr>
+</table>

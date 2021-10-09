@@ -1,4 +1,12 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<h1 [routerLink]="['/']">FelipeApp</h1>
+<a [routerLink]="['/currency']">Currency</a> |
+<a [routerLink]="['/wallet']">Wallet</a> |
+<hr />
+
+<router-outlet></router-outlet>
+
+<footer>
+  <p>Nome: Felipe Santos da Silva</p>
+  <p>RA: 0050831921034</p>
+  <p>Github: <a href="https://github.com/felipe428">github.com/felipe428</a></p>
+</footer>
