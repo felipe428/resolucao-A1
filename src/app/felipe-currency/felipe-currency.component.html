@@ -17,6 +17,9 @@
       <span [innerHTML]="rate.bpi.EUR.symbol"></span>
       {{ rate.bpi.EUR.rate_float }}
     </td>
-    <td>R$ {{ wallet.BRLlist[i].bpi.BRL.rate_float }}</td>
+    <td>
+      <span>R$</span>
+      {{ wallet.BRLlist[i]?.bpi.BRL.rate_float }}
+    </td>
   </tr>
 </table>

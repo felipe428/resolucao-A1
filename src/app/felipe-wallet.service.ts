@@ -62,10 +62,45 @@ export class FelipeWalletService {
   }
 
   addBitcoins(value: number) {
-    this.bitcoins += value;
+    let length = this.BRLlist.length;
+    if (this.BRLlist.length > 0) {
+      let btc = value / this.BRLlist[length].bpi.BRL.rate_float;
+      this.bitcoins += btc;
+    }
   }
 
   removeBitcoins(value: number) {
-    this.bitcoins -= value;
+    let length = this.BRLlist.length;
+    if (length > 0) {
+      let btc = value / this.BRLlist[length].bpi.BRL.rate_float;
+      this.bitcoins -= btc;
+    }
+  }
+
+  getBTCinUSD() {
+    let length = this.USDeEURlist.length;
+    if (length > 0) {
+      return this.bitcoins * this.USDeEURlist[length - 1].bpi.USD.rate_float;
+    } else {
+      return 0;
+    }
+  }
+
+  getBTCinEUR() {
+    let length = this.USDeEURlist.length;
+    if (length > 0) {
+      return this.bitcoins * this.USDeEURlist[length - 1].bpi.EUR.rate_float;
+    } else {
+      return 0;
+    }
+  }
+
+  getBTCinBRL() {
+    let length = this.BRLlist.length;
+    if (length > 0) {
+      return this.bitcoins * this.BRLlist[length - 1].bpi.BRL.rate_float;
+    } else {
+      return 0;
+    }
   }
 }
