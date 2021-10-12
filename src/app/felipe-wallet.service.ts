@@ -45,6 +45,12 @@ export class FelipeWalletService {
     this.http
       .get<USDeEUR>('https://api.coindesk.com/v1/bpi/currentprice.json')
       .subscribe((data) => {
+        if (this.USDeEURlist.length > 0) {
+          let length = this.USDeEURlist.length;
+          this.dif =
+            data.bpi.USD.rate_float -
+            this.USDeEURlist[length - 1].bpi.USD.rate_float;
+        }
         this.USDeEURlist.push(data);
       });
 

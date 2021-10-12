@@ -1,6 +1,8 @@
 <h1 [routerLink]="['/']">FelipeApp</h1>
 <a [routerLink]="['/currency']">Currency</a> |
 <a [routerLink]="['/wallet']">Wallet</a> |
+<span *ngIf="wallet.dif > 0" style="color: green">↑</span>
+<span *ngIf="wallet.dif < 0" style="color: red">↓</span>
 <hr />
 
 <router-outlet></router-outlet>
